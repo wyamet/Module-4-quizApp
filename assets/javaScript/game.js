@@ -12,12 +12,12 @@ let availableQuestions = []
 
 let questions = [
     {
-        question: "Arrays in JavaScript can be used to store_____.",
-        choice1: "Numbers and Strings",
-        choice2: "other Arrays",
-        choice3: "booleans",
-        choice4: "All the Above",
-        answer: 4,
+        question: "JavaScript is a _____. language",
+        choice1: "Object oreiented",
+        choice2: "Object based",
+        choice3: "Procederal",
+        choice4: "None of the above",
+        answer: 1,
     },
     {
         question: "String values must be enclosed in _____ when being assigned to variables.",
