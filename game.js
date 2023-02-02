@@ -23,7 +23,7 @@ let questions = [
     question:
       "String values must be enclosed in _____ when being assigned to variables.",
     choice1: "Commas",
-    choice2: "Curley Brackets",
+    choice2: "Quotes",
     choice3: "parenthesis",
     choice4: "Square Brackets",
     answer: 2,
@@ -35,7 +35,7 @@ let questions = [
     choice2: "terminal/bash",
     choice3: "console.log",
     choice4: "for loops",
-    answer: 4,
+    answer: 3,
   },
   {
     question: "The condition in an if / else statement is enclosed with _____.",

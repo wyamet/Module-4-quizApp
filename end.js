@@ -30,5 +30,6 @@ saveHighScore = (e) => {
   highScores.splice(8);
 
   localStorage.setItem("highScores", JSON.stringify(highScores));
-  window.location.assign("/index.html");
+  // redirect to next page
+  window.location.href = "highscores.html";
 };
