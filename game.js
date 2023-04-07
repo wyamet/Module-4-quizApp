@@ -3,12 +3,14 @@ const choices = Array.from(document.querySelectorAll(".choice-text"));
 const progressText = document.querySelector("#progressText");
 const scoreText = document.querySelector("#score");
 const progressBarFull = document.querySelector("#progressBarFull");
+const timer = document.querySelector("#time");
 
 let currentQuestion = {};
-let acceptingAnswers = true;
+let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let timeLeft = 60; // set the time for the quiz in seconds
 
 let questions = [
   {
@@ -87,12 +89,22 @@ startGame = () => {
   score = 0;
   availableQuestions = [...questions];
   getNewQuestion();
+  // start the timer
+  setInterval(() => {
+    timeLeft--;
+    timer.textContent = `Time left: ${timeLeft} seconds`;
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      localStorage.setItem("mostRecentScore", score);
+      return window.location.assign("./end.html");
+    }
+  }, 1000);
 };
 
 getNewQuestion = () => {
   if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    clearInterval(timerInterval);
     localStorage.setItem("mostRecentScore", score);
-
     return window.location.assign("./end.html");
   }
 
@@ -122,11 +134,15 @@ choices.forEach((choice) => {
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"];
 
-    let classToApply =
+    const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
     if (classToApply === "correct") {
       incrementScore(SCORE_POINTS);
+      timeLeft += 5;
+    } else {
+      // decrease time left by 10 seconds if answer is incorrect
+      timeLeft -= 10;
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
