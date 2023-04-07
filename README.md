@@ -7,11 +7,6 @@
 
 A small Quiz on JavaScript that will keep track of your score and let you view the leader board.
 
-## Getting Started
-
-### Dependencies
-
-N/A
 
 ### Installing
 
@@ -21,12 +16,6 @@ just visit the website:
 
 * Use mouse or pad to click on buttons to either view leader board, go home, or start/stop the quiz.
 
-
-
-## Help
-
-* Timer feature in the works. 
-* 
 
 
 ## Authors
