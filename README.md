@@ -5,7 +5,7 @@
 
 ## Description
 
-A small Quiz on JavaScript that will keep track of your score and let you view the leader board.
+A small timed Quiz on JavaScript that will subract 10 seconds for a wrong answer and add 5 seconds for the right answer. It will keep track of your score on local storage so you can view the leader board.
 
 
 ### Installing
