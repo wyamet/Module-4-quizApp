@@ -11,6 +11,7 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 let timeLeft = 60; // set the time for the quiz in seconds
+let timerInterval;
 
 let questions = [
   {
@@ -90,7 +91,7 @@ startGame = () => {
   availableQuestions = [...questions];
   getNewQuestion();
   // start the timer
-  let timerInterval = setInterval(() => {
+  timerInterval = setInterval(() => {
     timeLeft--;
     timer.textContent = `Time left: ${timeLeft} seconds`;
     if (timeLeft <= 0) {
@@ -102,7 +103,7 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+  if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     clearInterval(timerInterval);
     localStorage.setItem("mostRecentScore", score);
     return window.location.assign("./end.html");
