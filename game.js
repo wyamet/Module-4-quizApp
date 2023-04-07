@@ -90,7 +90,7 @@ startGame = () => {
   availableQuestions = [...questions];
   getNewQuestion();
   // start the timer
-  setInterval(() => {
+  let timerInterval = setInterval(() => {
     timeLeft--;
     timer.textContent = `Time left: ${timeLeft} seconds`;
     if (timeLeft <= 0) {
@@ -149,6 +149,13 @@ choices.forEach((choice) => {
 
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
+
+      if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        clearInterval(timerInterval);
+        localStorage.setItem("mostRecentScore", score);
+        return window.location.assign("./end.html");
+      }
+
       getNewQuestion();
     }, 1000);
   });
